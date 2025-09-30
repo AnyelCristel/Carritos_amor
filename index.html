@@ -1,81 +1,65 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Feliz Día, Mi Amorcito</title>
+  <meta charset="UTF-8">
+  <title>Carritos Amor</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #fff5e6;
-      color: #333;
+      background-color: #fff4e6;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding: 40px;
       overflow: hidden;
-      position: relative;
+      margin: 0;
+      padding: 0;
     }
 
     h1 {
       color: #e91e63;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 2;
+      font-size: 2.5em;
+      margin: 20px 0;
     }
 
     .carritos {
       display: flex;
       justify-content: center;
       gap: 20px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
+      margin-top: 30px;
     }
 
     .carrito {
-      width: 150px;
-      border: 2px solid #e91e63;
+      background-color: #ffe6f0;
+      border: 2px solid #ff4081;
       border-radius: 10px;
-      padding: 10px;
-      background-color: #fff0f6;
-      box-shadow: 0 4px 6px rgba(233, 30, 99, 0.3);
+      padding: 15px;
+      width: 180px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
     }
 
     .carrito img {
-      max-width: 100%;
-      border-radius: 8px;
+      width: 100%;
+      border-radius: 5px;
     }
 
     .carrito p {
-      margin-top: 10px;
       font-weight: bold;
-      color: #e91e63;
+      color: #c2185b;
+      margin-top: 10px;
     }
 
-    /* 🌸 Animación de flores */
-    .flores {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 1;
-      pointer-events: none;
-    }
-
+    /* Flores */
     .flor {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      background-image: url('https://i.ibb.co/nrf39DK/blue-flower.png');
-      background-size: cover;
-      opacity: 0.8;
-      animation: caer linear infinite;
+      top: -50px;
+      font-size: 24px;
+      color: blue;
+      user-select: none;
+      pointer-events: none;
+      animation: caer 8s linear infinite;
     }
 
     @keyframes caer {
       0% {
-        transform: translateY(-50px) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
       }
       100% {
@@ -86,53 +70,36 @@
   </style>
 </head>
 <body>
-  <h1>Hola amorcito, es mi primer proyecto en GitHub jajaja</h1>
-  <h1>Espero te guste mucho</h1>
+  <h1>Hola amorcito, es mi primer proyecto en Git Hub jajaja</h1>
+  <h1>espero te guste mucho</h1>
 
   <div class="carritos">
     <div class="carrito">
-      <img src="https://i.ibb.co/3fv7X6z/hotwheels1.png" alt="Carrito Hot Wheels 1" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hot_Wheels_Logo.svg/1200px-Hot_Wheels_Logo.svg.png" alt="Carrito Hot Wheels 1">
       <p>Twin Mill</p>
     </div>
     <div class="carrito">
-      <img src="https://i.ibb.co/fdb1F8t/hotwheels2.png" alt="Carrito Hot Wheels 2" />
-      <p>Bone Shaker</p>
-    </div>
-    <div class="carrito">
-      <img src="https://i.ibb.co/2y2kBLf/hotwheels3.png" alt="Carrito Hot Wheels 3" />
-      <p>Redline</p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Hot_Wheels_Logo.svg/1200px-Hot_Wheels_Logo.svg.png" alt="Carrito Hot Wheels 2">
+      <p>Deora II</p>
     </div>
   </div>
 
-  <!-- Contenedor de flores -->
-  <div class="flores"></div>
-
   <script>
-    // 🌸 Generar flores infinitas
-    const contenedorFlores = document.querySelector('.flores');
-
     function crearFlor() {
-      const flor = document.createElement('div');
-      flor.classList.add('flor');
-      
-      // posición aleatoria en el eje X
-      flor.style.left = Math.random() * 100 + 'vw';
-      // tamaño aleatorio
-      const size = Math.random() * 30 + 20; // entre 20px y 50px
-      flor.style.width = size + 'px';
-      flor.style.height = size + 'px';
-      // duración aleatoria de caída
-      flor.style.animationDuration = (Math.random() * 5 + 5) + 's';
-      
-      contenedorFlores.appendChild(flor);
+      const flor = document.createElement("div");
+      flor.classList.add("flor");
+      flor.innerHTML = "🌸";  // aquí puedes cambiar el emoji por otro si quieres
+      flor.style.left = Math.random() * window.innerWidth + "px";
+      flor.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(flor);
 
-      // eliminar flor cuando termina animación
+      // borrar la flor después de caer
       setTimeout(() => {
         flor.remove();
-      }, 10000);
+      }, 8000);
     }
 
-    // Crear una flor cada 500ms
+    // crear flores cada 500ms
     setInterval(crearFlor, 500);
   </script>
 </body>
